@@ -12,9 +12,10 @@ fn runprompt(todo: &mut Vec<Task>){
         stdout.flush().expect("can't flush the stdout");
 
         let mut buffer = String::new();
+        stdin().read_line(&mut buffer).expect("cannot readline");
         let args:Vec<&str> = buffer.split_whitespace().collect();
 
-        // todo_list::run(args,todo);
+        todo_list::run(args,todo);
     }
 }
 
